@@ -132,6 +132,7 @@ ENV/
 env.bak/
 venv.bak/
 myenv/
+tickets_env/
 
 # Spyder project settings
 .spyderproject
