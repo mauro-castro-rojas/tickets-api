@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación de Solicitud de Servicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        td,
+        th {
+            padding: 12px;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom: 1px solid #fff;
+        }
+
+        .header {
+            background-color: #ff6000;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        .section-header {
+            background-color: #343535;
+            color: white;
+            font-size: 16px;
+        }
+
+        .gray-bg {
+            background-color: #A4A3A7;
+            color: #3B3B3B;
+            width: 30%;
+        }
+
+        .light-gray-bg {
+            background-color: #D9D8D6;
+            color: #3B3B3B;
+            width: 70%;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #343535;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 16px;
+
+        }
+
+        .ask-container {
+            text-align: center;
+            background-color: #ff6000;
+            color: white;
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .signature h3,
+        .signature p {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <img src="https://www.libertynetworks.com/themes/custom/wholesales/logo.svg" alt="Logo"><br>
+        <br><p style="text-align: justify;"><small>¡Buenos días, Equipo! 
+            Les comparto una <b>{{ radar_checklist_choices }}</b> que ha sido registrada en RADAR.
+
+            Esta iniciativa hace parte del programa RADAR, diseñado para que los colaboradores del CSC reporten formalmente oportunidades valiosas que detecten en el día a día.
+            Si consideran que esta oportunidad es viable y no ha sido identificada previamente, los invitamos a registrarla en sus sistemas y gestionarla según corresponda.
+            <br>¡Aprovechemos juntos estas oportunidades y sigamos creciendo!</small></p>
+        <div><br></div>
+        <div class="header">Notificación de Oportunidad en Radar</div>
+        <table>
+            <tr class="section-header">
+                <td colspan="6"><b>Reportado por:</b> {{ radar_user_email }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Nombre del cliente:</b></td>
+                <td colspan="4" class="light-gray-bg">{{ radar_account_id }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Pais:</b></td>
+                <td colspan="4" class="light-gray-bg">{{ radar_country }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Fecha:</b></td>
+                <td colspan="4" class="light-gray-bg">{{ radar_creation_date }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Ticket:</b><br>
+                <small>(Número de caso bajo el cual se identificó la oportunidad).</small></td>
+                <td colspan="4" class="light-gray-bg">{{ radar_case }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Contacto cliente:</b><br>
+                <small>(Nombre de la persona a quien explicó o habló de esta oportunidad).</small></td>
+                <td colspan="4" class="light-gray-bg"><b>Nombre:</b>{{ radar_contact_name }},<br><b>Telefono:</b> {{radar_contact_phone}},<br><b>Email: </b>{{radar_contact_email}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>Descripción de la oportunidad:</b><br>
+                <small>(Naturaleza de la oportunidad registrada).</small></td>
+                <td colspan="4" class="light-gray-bg"><b>Area oportunidad: </b>{{ radar_area }}<br>
+                    <b>Tipo de oportunidad: </b>{{ radar_type }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="gray-bg"><b>¿Qué crees que se mejora para el cliente?:</b></td>
+                <td colspan="4" class="light-gray-bg">{{ radar_details }}</td>
+            </tr>
+        </table>
+        <div class="footer">
+            <b>Customer Service Center</b>
+        </div>
+
+        <div class="signature">
+            <br>
+            <p><b>Cordialmente,</b></p>
+            <h3>{{ radar_user_email }}</h3>
+            <p>Customer Service Center</p>
+            <p>Liberty Latin America</p>
+            <p style="color: #ff6000">
+                <b>
+                    <a href="http://www.lla.com/" style="color: #ff6000" target="_blank">www.lla.com</a> |
+                    <a href="http://www.Libertynetworks.com/" style="color: #ff6000"
+                        target="_blank">www.libertynetworks.com</a>
+                </b>
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Correo general</title>
+</head>
+<style>
+
+
+    .ask-container {
+        text-align: center;
+        background-color: #ff6000;
+        color: white;
+        padding: 5px;
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .signature h3,
+    .signature p {
+        margin: 5px 0;
+    }
+
+</style>
+<body>
+    <p>Cordial saludo,<br>
+    Detalle la información suministrada en este correo: </p>
+    
+    {{ body_html | safe }}
+
+    <br><br>
+
+    <div class="signature">
+        <br>
+        <p><b>Cordialmente,</b></p>
+        <h3>Proactive Monitoring Team</h3>
+        <p>Customer Service Center</p>
+        <p>Liberty Latin America</p>
+        <p style="color: #ff6000">
+            <b>
+                <a href="http://www.lla.com/" style="color: #ff6000" target="_blank">www.lla.com</a> |
+                <a href="http://www.Libertynetworks.com/" style="color: #ff6000"
+                    target="_blank">www.libertynetworks.com</a>
+            </b>
+        </p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+services:
+  prod:
+    build: .
+    image: csc_tickets_api
+    container_name: csc-tickets-api
+    working_dir: /app
+    environment:
+      - ENVIRONMENT=prod
+      - PYTHONPATH=/app
+    volumes:
+      - ./:/app
+    command: >
+      gunicorn main:app
+        --worker-class uvicorn.workers.UvicornWorker
+        --workers 4
+        --bind 0.0.0.0:8051
+        --timeout 130 
+        --keep-alive 5
+    # command: uvicorn main:app --host 0.0.0.0 --port 8051
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8051/health"]
+      interval: 50m
+      timeout: 60s
+      retries: 3
+      start_period: 30s
+    ports:
+      - 8051:8051

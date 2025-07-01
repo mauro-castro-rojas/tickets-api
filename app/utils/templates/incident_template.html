@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación de Apertura de Incidente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 750px;
+            margin: auto;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .header, .footer {
+            background: #ff6000;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 18px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid white;
+            text-align: left;
+        }
+
+        .section-header {
+            background: #343535;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .gray-bg {
+            background: #A4A3A7;
+            color: #3B3B3B;
+            font-weight: bold;
+            width: 35%;
+        }
+
+        .light-gray-bg {
+            background: #E1E2E2;
+            color: #3B3B3B;
+            width: 65%;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px;
+            background-color: #228b22;
+            border-radius: 8px;
+            color: #fff;
+            margin-top: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            border-radius: 12px;
+            font-size: 14px;
+            margin-top: 25px;
+            padding: 18px;
+        }
+
+        .signature {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .signature p {
+            margin: 6px 0;
+        }
+
+        .highlight {
+            color: #ff6000;
+            font-weight: bold;
+        }
+
+        a {
+            color: #ff6000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <img src="https://www.libertynetworks.com/themes/custom/wholesales/logo.svg" alt="Logo" width="160" style="display: block; margin-bottom: 10px;">
+        <br>
+        <div class="header">NOTIFICACIÓN DE APERTURA DE INCIDENTE</div>
+
+        <table>
+            <tr class="section-header">
+                <th colspan="2">Número de Ticket: {{ tk_id }}</th>
+            </tr>
+            <tr>
+                <th class="gray-bg">Descripción de la Falla</th>
+                <td class="light-gray-bg">{{ fault_description }}</td>
+            </tr>
+            <tr>
+                <th class="gray-bg">Fecha de Apertura del Incidente</th>
+                <td class="light-gray-bg">{{ creation_date }} EDT GMT -5</td>
+            </tr>
+            <tr>
+                <th class="gray-bg">ID Servicio Afectado</th>
+                <td class="light-gray-bg">{{ cid_mgt }}</td>
+            </tr>
+            <tr>
+                <th class="gray-bg">Prioridad</th>
+                <td class="light-gray-bg">1</td>
+            </tr>
+        </table>
+
+        <br>
+        <div class="footer">
+            <b>Próximamente nos comunicaremos con usted con el fin de proporcionarle nuevos avances.</b>
+        </div>
+
+        <div class="signature">
+            <p><b>Cordialmente,</b></p>
+            <h3>CSC - Monitoring Team</h3>
+            <p>Liberty Latin America</p>
+            <p class="highlight">
+                <b>
+                    <a href="https://www.lla.com" target="_blank">www.lla.com</a>
+                </b>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
